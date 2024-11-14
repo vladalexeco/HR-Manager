@@ -28,4 +28,6 @@ class AnalyzeStatus(Enum):
     FILES_HAVE_NOT_DIFFERENCES = auto()
 
 ANALYZE_STATUS = "analyze_status"
+FIRST_FILENAME = "first_filename"
+SECOND_FILENAME = "second_filename"
 

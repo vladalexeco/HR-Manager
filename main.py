@@ -2,7 +2,7 @@ import tkinter as tk
 
 from employee_person import EmployeePerson
 from main_functions import MainUIFunctions
-from utils import AnalyzeStatus, ANALYZE_STATUS
+from utils import AnalyzeStatus, ANALYZE_STATUS, FIRST_FILENAME, SECOND_FILENAME
 
 
 def mainUI():
@@ -16,7 +16,9 @@ def mainUI():
     second_file_persons_list: list[EmployeePerson] = list()
 
     main_variables = {
-        ANALYZE_STATUS: AnalyzeStatus.NOT_ANALYZED
+        ANALYZE_STATUS: AnalyzeStatus.NOT_ANALYZED,
+        FIRST_FILENAME: "",
+        SECOND_FILENAME: ""
     }
 
     for i in range(8):
@@ -32,9 +34,10 @@ def mainUI():
         text="Файл 1",
         font=("Arial", 12),
         command=lambda: MainUIFunctions.on_first_file_open_button_click(
-            first_file_information_label,
-            first_file_persons_list,
-            main_variables
+            file_label=first_file_information_label,
+            app_label=app_information_label,
+            persons=first_file_persons_list,
+            main_variables=main_variables
         )
     )
     first_file_open_button.grid(row=0, column=0, padx=10, pady=10, sticky="ew")
@@ -44,9 +47,10 @@ def mainUI():
         text="Файл 2",
         font=("Arial", 12),
         command=lambda: MainUIFunctions.on_second_file_open_button_click(
-            second_file_information_label,
-            second_file_persons_list,
-            main_variables
+            file_label=second_file_information_label,
+            app_label=app_information_label,
+            persons=second_file_persons_list,
+            main_variables=main_variables
         )
     )
     second_file_open_button.grid(row=0, column=1, padx=10, pady=10, sticky="ew")
